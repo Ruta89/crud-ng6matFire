@@ -97,7 +97,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cdk@^6.0.0":
+"@angular/cdk@^6.0.2":
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/@angular/cdk/-/cdk-6.0.2.tgz#65089561f91038ba6d744b9a251998bf99c75097"
   dependencies:
@@ -146,6 +146,12 @@
   resolved "https://registry.yarnpkg.com/@angular/core/-/core-6.0.2.tgz#d183730d73182a4590a5d71083db45655f210e69"
   dependencies:
     tslib "^1.9.0"
+
+"@angular/flex-layout@^6.0.0-beta.15":
+  version "6.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@angular/flex-layout/-/flex-layout-6.0.0-beta.15.tgz#9e85e9292286941973c7e6cdec02990d5fd6ec15"
+  dependencies:
+    tslib "^1.7.1"
 
 "@angular/forms@^6.0.2":
   version "6.0.2"
