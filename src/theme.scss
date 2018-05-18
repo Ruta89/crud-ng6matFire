@@ -1,0 +1,7 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$ngCrud-app-primary: mat-palette($mat-blue-grey, 900);
+$ngCrud-app-accent: mat-palette($mat-red, A200);
+$ngCrud-app-warn: mat-palette($mat-red);
+$ngCrud-app-theme: mat-light-theme($ngCrud-app-primary, $ngCrud-app-accent, $ngCrud-app-warn);
+@include angular-material-theme($ngCrud-app-theme);
