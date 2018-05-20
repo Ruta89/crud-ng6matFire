@@ -12,6 +12,8 @@ export class PostDashboardComponent implements OnInit {
   image: string = null;
   content: string;
 
+  bottomText = 'Utworz post';
+
   constructor(private auth: AuthService, private postService: PostService) {}
 
   ngOnInit() {}
@@ -25,5 +27,11 @@ export class PostDashboardComponent implements OnInit {
       title: this.title
     };
     this.postService.create(data);
+    this.title = '';
+    this.content = '';
+    this.bottomText = 'Post stworzony';
+    setTimeout(() => {
+      this.bottomText = 'Utworz post';
+    }, 2000);
   }
 }
