@@ -9,6 +9,9 @@ import {
 import { NgModule } from '@angular/core';
 import { LayoutModule } from '@angular/cdk/layout';
 
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatInputModule } from '@angular/material/input';
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   imports: [
@@ -19,7 +22,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   exports: [
     MatButtonModule,
@@ -29,7 +34,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule,
+    MatInputModule
   ],
   declarations: []
 })

@@ -1,3 +1,5 @@
-<p>
-  post-detail works!
-</p>
+<div *ngIf="post">
+  <h3>{{ post.title }}</h3>
+  <p>post od: {{post.author}} &bull; {{ ( post.published.seconds * 1000 ) | date:'fullDate' }} </p>
+  <p> {{ post.content }} </p>
+</div>
