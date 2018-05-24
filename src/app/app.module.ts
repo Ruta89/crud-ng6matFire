@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { PostsModule } from './posts/posts.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 const routes: Routes = [
   {
@@ -38,7 +39,8 @@ const routes: Routes = [
     AngularFireStorageModule,
     CoreModule,
     SharedModule,
-    PostsModule
+    PostsModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
