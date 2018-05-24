@@ -1,6 +1,9 @@
 import { PostService } from './../post.service';
 import { AuthService } from './../../core/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFireStorage } from 'angularfire2/storage';
+import { finalize } from 'rxjs/internal/operators/finalize';
 
 @Component({
   selector: 'app-post-dashboard',
@@ -14,7 +17,14 @@ export class PostDashboardComponent implements OnInit {
 
   bottomText = 'Utworz post';
 
-  constructor(private auth: AuthService, private postService: PostService) {}
+  uploadPercent: Observable<number>;
+  downloadURL: Observable<string>;
+
+  constructor(
+    private auth: AuthService,
+    private postService: PostService,
+    private storage: AngularFireStorage
+  ) {}
 
   ngOnInit() {}
   createPost() {
@@ -32,6 +42,24 @@ export class PostDashboardComponent implements OnInit {
     this.bottomText = 'Post stworzony';
     setTimeout(() => {
       this.bottomText = 'Utworz post';
-    }, 2000);
+    }, 3000);
+  }
+
+  uploadImage(event) {
+    const file = event.target.files[0];
+    const path = `posts/${file.name}`;
+    const fileRef = this.storage.ref(path);
+
+    if (file.type.split('/')[0] !== 'image') {
+      return alert('tylko plik ze zdjeciem');
+    } else {
+      const task = this.storage.upload(path, file);
+
+      this.uploadPercent = task.percentageChanges();
+      console.log('zaladowano');
+      fileRef.getDownloadURL().subscribe(url => {
+        this.downloadURL = url;
+      });
+    }
   }
 }

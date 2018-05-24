@@ -6,6 +6,13 @@
           Utworz post
         </mat-panel-title>
       </mat-expansion-panel-header>
+
+
+      <div>
+        <input type="file" name="file" id="file" (change)="uploadImage($event)">
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </div>
+
       <mat-form-field>
         <input matInput placeholder="Tytuł postu" [(ngModel)]="title">
       </mat-form-field>
